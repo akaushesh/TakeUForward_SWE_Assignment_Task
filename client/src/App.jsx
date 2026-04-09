@@ -1,17 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-// import Header from "./components/Header/Header.jsx";
 import { useEffect, useState } from "react";
 import authService from "./services/Auth.js";
 import Loader from "./components/Loader.jsx";
 import { login, logout } from "./app/authslice";
-import { Outlet ,useLocation} from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import API from "./api/axios.js";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const location = useLocation();
-  const hideHeader = location.pathname === "/";
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -39,13 +37,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="flex flex-wrap content-between ">
-      <div className="w-full block">
-        {/* {!hideHeader && <Header />} */}
-        <main className="">
-          {loading?<Loader/>:<Outlet />}
-        </main>
-      </div>
+    <div className="min-h-screen">
+      <main>
+        {loading ? <Loader /> : <Outlet />}
+      </main>
     </div>
   );
 }

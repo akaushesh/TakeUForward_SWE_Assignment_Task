@@ -1,33 +1,245 @@
 @import "tailwindcss";
-/* Hide scrollbar for all browsers */
-.custom-scrollbar-hide::-webkit-scrollbar {
-  display: none;
+
+@theme {
+  /* primary */
+  --color-primary: #006193;
+  --color-primary-container: #007bb9;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fdfcff;
+  --color-primary-fixed: #cce5ff;
+  --color-primary-fixed-dim: #92ccff;
+  --color-on-primary-fixed: #001e31;
+  --color-on-primary-fixed-variant: #004b73;
+  --color-inverse-primary: #92ccff;
+
+  /* secondary */
+  --color-secondary: #43617b;
+  --color-secondary-container: #c1e0ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #46647e;
+  --color-secondary-fixed: #cce5ff;
+  --color-secondary-fixed-dim: #abcae8;
+  --color-on-secondary-fixed: #001e31;
+  --color-on-secondary-fixed-variant: #2b4a62;
+
+  /* tertiary */
+  --color-tertiary: #8a4d00;
+  --color-tertiary-container: #ad6200;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fffbff;
+  --color-tertiary-fixed: #ffdcc0;
+  --color-tertiary-fixed-dim: #ffb876;
+  --color-on-tertiary-fixed: #2d1600;
+  --color-on-tertiary-fixed-variant: #6b3b00;
+
+  /* error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* surface / background */
+  --color-surface: #f8f9fa;
+  --color-surface-dim: #d9dadb;
+  --color-surface-bright: #f8f9fa;
+  --color-surface-variant: #e1e3e4;
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #3f4850;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  --color-surface-tint: #006497;
+  --color-background: #f8f9fa;
+  --color-on-background: #191c1d;
+
+  /* outline */
+  --color-outline: #707881;
+  --color-outline-variant: #bfc7d2;
+
+  /* inverse */
+  --color-inverse-surface: #2e3132;
+  --color-inverse-on-surface: #f0f1f2;
+
+  /* typography */
+  --font-headline: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* radius */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
 }
-.custom-scrollbar-hide {
-  -ms-overflow-style: none;  /* IE/Edge */
-  scrollbar-width: none;     /* Firefox */
+
+.dark {
+  --color-primary: #92ccff;
+  --color-primary-container: #004b73;
+  --color-on-primary: #003352;
+  --color-on-primary-container: #cce5ff;
+  --color-secondary: #abcae8;
+  --color-secondary-container: #2b4a62;
+  --color-on-secondary: #13334b;
+  --color-on-secondary-container: #cce5ff;
+  --color-tertiary: #ffb876;
+  --color-tertiary-container: #6b3b00;
+  --color-on-tertiary: #4a2800;
+  --color-on-tertiary-container: #ffdcc0;
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-surface: #191c1d;
+  --color-surface-dim: #111415;
+  --color-surface-bright: #373a3b;
+  --color-surface-variant: #3f4850;
+  --color-on-surface: #e1e3e4;
+  --color-on-surface-variant: #bfc7d2;
+  --color-surface-container-lowest: #0e1112;
+  --color-surface-container-low: #1e2122;
+  --color-surface-container: #262a2b;
+  --color-surface-container-high: #313435;
+  --color-surface-container-highest: #3c3f40;
+  --color-background: #191c1d;
+  --color-on-background: #e1e3e4;
+  --color-outline: #8a929b;
+  --color-outline-variant: #3f4850;
+  --color-inverse-surface: #e1e3e4;
+  --color-inverse-on-surface: #2e3132;
+  --color-inverse-primary: #006193;
 }
+
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* background-color: #0f0f1c; match your app's background */
 }
 
-/* Hide scrollbar while retaining scroll functionality */
-.custom-scrollbar-hide::-webkit-scrollbar {
-  display: none;
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+.custom-scrollbar-hide::-webkit-scrollbar { display: none; }
 .custom-scrollbar-hide {
-  -ms-overflow-style: none; /* IE & Edge */
-  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(191, 199, 210, 0.4) transparent;
 }
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(191, 199, 210, 0.4);
+  border-radius: 99px;
 }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(191, 199, 210, 0.7);
+}
+.dark .custom-scrollbar { scrollbar-color: rgba(63, 72, 80, 0.6) transparent; }
+.dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(63, 72, 80, 0.6); }
+
+.paper-texture {
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAszMJxL9guC626z1VkDDCry_WYQOXf_oqeDT9xpff9TT1qpVNrVHxGR0PYn2gX5D15BrmGbE_yXb-gm_bkkrVa7wyr7cypkVZQSVbZLTTPf9Pwc89QH5r8iFXwqBrHLYnAkd2WooKpU0QwHsuAqyNLtkrKv3nwqFODmCzOXxDQny37rm5hOQBTB6RxLHghkTY9M5TzlYWTK-mmE-HeoesI91CNpKETCFrTZrN79jl9QFYxgaWtIHlclUA5TamIAMrNzI_umlfUoG7A);
+  background-blend-mode: overlay;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.lined-paper {
+  background-image: linear-gradient(rgba(191, 199, 210, 0.2) 1px, transparent 1px);
+  background-size: 100% 2.5rem;
+}
+.dark .lined-paper {
+  background-image: linear-gradient(rgba(191, 199, 210, 0.08) 1px, transparent 1px);
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.calendar-cell {
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.calendar-cell:hover {
+  background-color: rgba(0, 97, 147, 0.08);
+  transform: scale(1.06);
+  z-index: 20;
+}
+.dark .calendar-cell:hover { background-color: rgba(146, 204, 255, 0.1); }
+
+/* no border-radius so range cells form a continuous band */
+.in-range { border-radius: 0 !important; }
+
+.glass-panel {
+  background-clip: padding-box;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark .glass-panel {
+  background-color: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+* { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+.calendar-cell * { transition: none; }
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+.skeleton-bone {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-container-high) 25%,
+    var(--color-surface-container-highest) 50%,
+    var(--color-surface-container-high) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+.dark .skeleton-bone {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-container) 25%,
+    var(--color-surface-container-high) 50%,
+    var(--color-surface-container) 75%
+  );
+  background-size: 800px 100%;
+}
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+@keyframes slideOutToLeft {
+  from { opacity: 1; transform: translateX(0);     }
+  to   { opacity: 0; transform: translateX(-40px); }
+}
+@keyframes slideOutToRight {
+  from { opacity: 1; transform: translateX(0);    }
+  to   { opacity: 0; transform: translateX(40px); }
+}
+
+.animate-slide-in-left  { animation: slideInFromRight 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+.animate-slide-in-right { animation: slideInFromLeft  0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+.animate-slide-out-left  { animation: slideOutToLeft  0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+.animate-slide-out-right { animation: slideOutToRight 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }

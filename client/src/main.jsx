@@ -1,17 +1,13 @@
-import './index.css'
-import React, { Suspense, lazy } from "react";
+import "./index.css";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import {Protected,Secured} from './components/AuthLayout';
+import { Protected } from "./components/AuthLayout";
 
-
-
-const Home = React.lazy(() => import('./pages/Home'));
-
-
+const Home = React.lazy(() => import("./pages/Home"));
 
 const router = createBrowserRouter([
   {
@@ -29,7 +25,7 @@ const router = createBrowserRouter([
             <Home />
           </Protected>
         ),
-      }
+      },
     ],
   },
 ]);
